@@ -1,0 +1,37 @@
+{
+  "hash": "0604f34f",
+  "configHash": "cd5a6ae2",
+  "lockfileHash": "8284c972",
+  "browserHash": "fc03f869",
+  "optimized": {
+    "@monaco-editor/react": {
+      "src": "../../node_modules/@monaco-editor/react/dist/index.mjs",
+      "file": "@monaco-editor_react.js",
+      "fileHash": "2bc23a68",
+      "needsInterop": false
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "da723d5f",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "8b043e74",
+      "needsInterop": true
+    },
+    "use-debounce": {
+      "src": "../../node_modules/use-debounce/dist/index.module.js",
+      "file": "use-debounce.js",
+      "fileHash": "77b952ff",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-5WQJO2FO": {
+      "file": "chunk-5WQJO2FO.js"
+    }
+  }
+}
