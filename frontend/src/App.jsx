@@ -65,7 +65,6 @@ export default function App() {
     setOutputSrcDoc(generateSrcDoc());
   }, [debouncedCode]);
 
-
   useEffect(() => {
     localStorage.setItem("selectedFile", selectedFile);
   }, [selectedFile]);
@@ -117,15 +116,14 @@ export default function App() {
     `;
   };
 
-
   const handleRun = () => {
     const doc = generateSrcDoc();
     setOutputSrcDoc(doc);
   };
 
   return (
-    <div className="flex w-full h-screen bg-gray-950">
-      <div className="flex flex-col w-64 bg-blue-900 border-r border-gray-800">
+    <div className="flex flex-col w-full h-screen md:flex-row bg-gray-950">
+      <div className="flex-shrink-0 w-full bg-blue-900 border-r border-gray-800 md:w-64">
         <div className="p-2 bg-gray-900 border-b border-gray-800">
           <button
             onClick={handleAddFile}
@@ -134,7 +132,7 @@ export default function App() {
             + New File
           </button>
         </div>
-        <div className="flex-1 overflow-auto bg-gray-900">
+        <div className="h-full overflow-auto bg-gray-900">
           <FileTree
             files={Object.keys(fileContents)}
             onSelectFile={setSelectedFile}
@@ -145,14 +143,14 @@ export default function App() {
         </div>
       </div>
 
-      <div className="flex flex-col flex-1">
+      <div className="flex flex-col flex-1 overflow-hidden">
         <div className="flex flex-row items-center gap-2 p-2 bg-gray-600">
-          <span className="text-gray-400">{selectedFile}</span>
+          <span className="text-gray-400 text-sm truncate max-w-[50%]">{selectedFile}</span>
           <button
             onClick={handleRun}
             className="px-2 ml-auto text-white bg-gray-900 rounded hover:bg-gray-700"
           >
-            ▶ 
+            ▶
           </button>
           <button
             onClick={() => copyToClipboard(generateSrcDoc())}
@@ -174,8 +172,8 @@ export default function App() {
           </button>
         </div>
 
-        <div className="flex flex-1 overflow-hidden">
-          <div className="w-3/5 h-full">
+        <div className="flex flex-col flex-1 overflow-hidden md:flex-row">
+          <div className="w-full md:w-3/5 h-1/2 md:h-full">
             <CodeEditor
               language={
                 selectedFile.endsWith(".css")
@@ -188,7 +186,7 @@ export default function App() {
               setCode={setCode}
             />
           </div>
-          <div className="w-2/5 h-full border-l border-gray-800">
+          <div className="w-full border-t border-gray-800 md:w-2/5 h-1/2 md:h-full md:border-t-0 md:border-l">
             <Output code={outputSrcDoc} />
           </div>
         </div>
